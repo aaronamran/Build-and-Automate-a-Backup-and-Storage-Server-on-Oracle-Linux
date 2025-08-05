@@ -11,7 +11,7 @@ This homelab project sets up a backup and storage server using Oracle Linux on V
 
 
 ## Virtual Machine Setup and Initial Configuration
-- Visit [https://yum.oracle.com/oracle-linux-isos.html](https://yum.oracle.com/oracle-linux-isos.html) and download the Oracle Linux ISO image. In this homelab project, the full OracleLinux-R10-U0-x86_64-dvd.iso is downloaded <br />
+- Visit [https://yum.oracle.com/oracle-linux-isos.html](https://yum.oracle.com/oracle-linux-isos.html) and download the Oracle Linux ISO image. In this homelab project, the full `OracleLinux-R10-U0-x86_64-dvd.iso` is downloaded <br />
   <img width="1209" height="851" alt="image" src="https://github.com/user-attachments/assets/1a4dc56f-34c0-41bb-aa5c-0d966ecec745" />
 
 - In VirtualBox, create a new VM and add the downloaded ISO image <br />
@@ -37,14 +37,14 @@ This homelab project sets up a backup and storage server using Oracle Linux on V
   ```
 
 
-
-
 ## Setup Oracle Storage and Backup Server
 - On Oracle Linux VM, install LVM, NFS, Restic, Netdata
   ``` 
   dnf update -y
   dnf install -y lvm2 nfs-utils restic xfsprogs
   ```
+
+  
 - Setup the LVM storage
   ```
   pvcreate /dev/sdb /dev/sdc
@@ -57,6 +57,7 @@ This homelab project sets up a backup and storage server using Oracle Linux on V
   systemctl enable --now nfs-server
   exportfs -rav
   ```
+
 
 - Setup Restic backup repo
   ```
@@ -77,10 +78,12 @@ This homelab project sets up a backup and storage server using Oracle Linux on V
   sudo mount oracle1:/mnt/storage /mnt/nfs
   ```
 
+
 - Add to `/etc/fstab` for auto-mount
   ```
   oracle1:/mnt/storage /mnt/nfs nfs defaults 0 0
   ```
+
 
 - Simulate data to backup
   ```
@@ -96,6 +99,7 @@ This homelab project sets up a backup and storage server using Oracle Linux on V
   apk update
   apk add ansible openssh git python3 py3-pip
   ```
+  
 
 - Create the Ansible inventory
   ```
@@ -106,12 +110,14 @@ This homelab project sets up a backup and storage server using Oracle Linux on V
   client1 ansible_host=192.168.56.11 ansible_user=ubuntu
   ```
 
+
 - Generate the SSH key and copy to Oracle Linux VM and Lubuntu Client VM
   ```
   ssh-keygen
   ssh-copy-id root@oracle1
   ssh-copy-id ubuntu@client1
   ```
+
 
 - Then test Ansible
   ```
@@ -131,6 +137,7 @@ This homelab project sets up a backup and storage server using Oracle Linux on V
           restic -r /mnt/storage/restic_repo backup --host client1 --tag daily ssh://ubuntu@client1/home/ubuntu/data
   ```
 
+
 - Run the playbook
   ```
   ansible-playbook backup.yml
@@ -148,6 +155,7 @@ This homelab project sets up a backup and storage server using Oracle Linux on V
   git add .
   git commit -m "Initial commit: Ansible + backup playbook"
   ```
+
 
 - Push to GitHub when ready
 
