@@ -18,7 +18,26 @@ This homelab project sets up a backup and storage server using Oracle Linux on V
 - Set 4GB of RAM and 2 CPUs <br />
   <img width="790" height="470" alt="image" src="https://github.com/user-attachments/assets/63502f91-9e82-4ea0-87a8-925d30a4e060" />
 
+- 20GB of storage space is used <br />
+  <img width="791" height="469" alt="image" src="https://github.com/user-attachments/assets/49c320b8-3c7e-40f8-bb68-04589cfb36d9" />
+
+- Since Lubuntu and Alpine Linux VMs are already setup previously, their setup steps are not included
+- On all the three VMs, set static IPs or define `/etc/hosts` mappings
+  ```
+  192.168.56.10 oracle1
+  192.168.56.11 client1
+  192.168.56.12 admin1
+  ```
+
+- Then, set hostnames using
+  ```
+  hostnamectl set-hostname <hostname>
+  ```
+
 - 
+
+
+
 
 
   
