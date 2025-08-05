@@ -13,6 +13,14 @@ This homelab project sets up a backup and storage server using Oracle Linux on V
   <img width="1209" height="851" alt="image" src="https://github.com/user-attachments/assets/1a4dc56f-34c0-41bb-aa5c-0d966ecec745" />
 
 - In VirtualBox, create a new VM and add the downloaded ISO image <br />
+  <img width="792" height="466" alt="image" src="https://github.com/user-attachments/assets/c438f4c8-2daf-4fa1-933e-3266e6c99f81" />
+
+- Set 4GB of RAM and 2 CPUs <br />
+  <img width="790" height="470" alt="image" src="https://github.com/user-attachments/assets/63502f91-9e82-4ea0-87a8-925d30a4e060" />
+
+- 
+
+
   
 
 
