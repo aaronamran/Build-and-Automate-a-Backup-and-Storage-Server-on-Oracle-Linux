@@ -1,5 +1,6 @@
 # Build and Automate a Backup and Storage Server on Oracle Linux
-This homelab project sets up a backup and storage server using Oracle Linux on VirtualBox. It features LVM, NFS, Restic, Netdata for monitoring, and Ansible for automation. It is optimized for low-resource environments, ideal for single-laptop homelabs and virtual setups.
+This project showcases an enterprise-style automated backup and storage infrastructure using Oracle Linux within a virtualized environment. A central Oracle Linux VM is configured to manage scalable storage using Logical Volume Management (LVM) and to serve shared directories over the network via NFS. A Lubuntu-based client simulates user workloads and mounts the NFS share as a backup source. Automated backups are performed using Restic, a free and efficient backup tool, orchestrated from a lightweight Alpine Linux control node via Ansible. Backups are scheduled and executed remotely using Ansible playbooks, simulating centralized IT management. To maintain observability and real-time visibility into system health and storage metrics, Cockpit is deployed on the Oracle Linux server as a lightweight monitoring solution. Configuration files, backup scripts, and Ansible playbooks are version-controlled using Git on the control node, reinforcing best practices in infrastructure-as-code.
+
 
 1. [Virtual Machine Setup and Initial Configuration](#virtual-machine-setup-and-initial-configuration)
 2. [Setup Oracle Storage and Backup Server](#setup-oracle-storage-and-backup-server)
