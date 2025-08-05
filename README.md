@@ -139,6 +139,20 @@ This homelab project sets up a backup and storage server using Oracle Linux on V
 
 
   ## Version Control with Git on Alpine Linux
-  - 
+  - On Alpine Linux, use Git for version control
+    ```
+    mkdir -p ~/homelab-configs
+    cd ~/homelab-configs
+    git init
+    cp ~/ansible/*.yml .
+    git add .
+    git commit -m "Initial commit: Ansible + backup playbook"
+    ```
+
+  - Push to GitHub when ready
+
+
+
+
 
 
